@@ -1,25 +1,27 @@
-myData = '''
+f=open("isOdd.py","w")
+f.write( '''
 n = int(input("Your Number"))
 if n == 1:
     print(True)
 elif n == 2:
     print(False)
-'''
+''')
 
 Flag = True
 Final = 2147483647
 for i in range(3, Final):
     if Flag:
-        myData += f'''
+        f.write(f'''
 elif n == {i}:
-    print(True)'''
+    print(True)''')
         Flag = False
     else:
-        myData += f'''
+        f.write(f'''
 elif n == {i}:
-    print(False)'''
+    print(False)''')
         Flag = True
-
-f = open("isOdd.py","w")
-f.write(myData)
+f.write(f'''
+else:
+    print({Flag})
+''')
 f.close()
